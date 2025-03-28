@@ -1,0 +1,185 @@
+.header {
+    padding: 20px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .headerPlatform {
+    position: static;
+  }
+  
+  .headerContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  .headerBrand {
+    font-weight: 900;
+    font-size: 26px;
+    text-decoration: none;
+    color: #000000;
+  }
+  
+  .headerBrandHighlight {
+    color: #ffffff;
+    position: relative;
+    z-index: -1;
+  }
+  
+  .headerBrandHighlight::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 40px;
+    height: 40px;
+    background: #3e64ff;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+  }
+  
+  .headerToggle {
+    display: none; /* Hide on desktop */
+  }
+  
+  .headerToggleIcon {
+    background: #333;
+    display: block;
+    height: 2px;
+    position: relative;
+    transition: background 0.2s ease-out;
+    width: 18px;
+  }
+  
+  .headerToggleIcon:before,
+  .headerToggleIcon:after {
+    background: #333;
+    content: "";
+    display: block;
+    height: 100%;
+    position: absolute;
+    transition: all 0.2s ease-out;
+    width: 100%;
+  }
+  
+  .headerToggleIcon:before {
+    top: 5px;
+  }
+  
+  .headerToggleIcon::after {
+    top: -5px;
+  }
+  
+  .headerToggleIcon,
+  .headerToggleIcon:before,
+  .headerToggleIcon:after {
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .headerToggleIcon.open {
+    background: transparent;
+  }
+  
+  .headerToggleIcon.open:before {
+    transform: rotate(45deg);
+    top: 0;
+  }
+  
+  .headerToggleIcon.open:after {
+    transform: rotate(-45deg);
+    top: 0;
+  }
+  
+  .headerNavList {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .headerNavItem {
+    margin: 0 15px;
+  }
+  
+  .headerNavLink {
+    text-decoration: none;
+    color: #000000;
+    font-size: 16px;
+    position: relative;
+    padding-bottom: 5px;
+    cursor: pointer;
+  }
+  
+  .headerNavLink::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #3e64ff;
+    transition: width 0.3s ease-in-out;
+  }
+  
+  .headerNavLink:hover::after,
+  .headerNavLinkActive::after {
+    width: 100%;
+  }
+  
+  .headerNavLinkActive {
+    font-weight: bold;
+  }
+  
+  /* Responsive design for mobile */
+  @media (max-width: 768px) {
+    .headerToggle {
+      display: block;
+      background: none;
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  
+    .headerNav {
+      display: block;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      background-color: #f8f9fa;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+      padding: 0 20px;
+    }
+  
+    .headerNav.show {
+      max-height: 500px; /* Adjust this value based on your menu's maximum height */
+      padding: 20px;
+    }
+  
+    .headerNavList {
+      flex-direction: column;
+    }
+  
+    .headerNavItem {
+      margin: 10px 0;
+    }
+  }
+  
+  .headerScrolled {
+    background-color: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
