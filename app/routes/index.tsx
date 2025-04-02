@@ -1,4 +1,4 @@
-import type { 
+import type {
   PersonalInfoItem,
   TechStackItem,
   EducationItem,
@@ -6,18 +6,19 @@ import type {
   SkillItem,
   ServiceItem,
   GitHubRepoItem,
- } from "~/types";
-import type { Route, Route as RouterType } from "./+types/index";
-import Home from "~/components/home/Home";
-import About from "~/components/about/About";
-import { useLoaderData } from "react-router";
-import { useQuery } from "@tanstack/react-query";
-import { DataContext } from "~/context/DataContext";
+} from '~/types';
+import Home from '~/components/home/Home';
+import About from '~/components/about/About';
+import { useLoaderData } from 'react-router';
+import { useQuery } from '@tanstack/react-query';
+import { DataContext } from '~/context/DataContext';
+import Resume from '~/components/resume/Resume';
+/*global fetch*/
 
-export function meta({}: RouterType.MetaArgs) {
+export function meta() {
   return [
-    { title: "My Personal Website" },
-    { name: "description", content: "Welcome to React Router!" },
+    { title: 'My Personal Website' },
+    { name: 'description', content: 'Welcome to React Router!' },
   ];
 }
 
@@ -31,9 +32,9 @@ const fetchAllData = async () => {
     ServiceItem[],
     GitHubRepoItem[],
   ] = await Promise.all([
-    fetch(
-      `${import.meta.env.VITE_MY_PLATFORM_API_URL}/api/personal-info/1`
-    ).then((res) => res.json() as Promise<PersonalInfoItem>),
+    fetch(`${import.meta.env.VITE_MY_PLATFORM_API_URL}/api/personal-info/1`).then(
+      (res) => res.json() as Promise<PersonalInfoItem>
+    ),
     fetch(`${import.meta.env.VITE_MY_PLATFORM_API_URL}/api/tech-stack`).then(
       (res) => res.json() as Promise<TechStackItem[]>
     ),
@@ -60,32 +61,33 @@ const fetchAllData = async () => {
     experience,
     skills,
     services,
-    githubRepos
+    githubRepos,
   };
   return allData;
 };
 
-export async function loader({ context }: Route.LoaderArgs) {
+export async function loader() {
   const allData = await fetchAllData();
   return { allData };
 }
 
 function MainContent() {
-  const { allData } = useLoaderData<typeof loader>()
-  const {data, error, isLoading} = useQuery({
-    queryKey: ["allData"],
+  const { allData } = useLoaderData<typeof loader>();
+  const { data, error, isLoading } = useQuery({
+    queryKey: ['allData'],
     queryFn: () => fetchAllData(),
     initialData: allData,
   });
 
-
-  return <DataContext.Provider value={{data, error, isLoading}}>
-    <Home/>
-    <About/>
-  </DataContext.Provider>;
+  return (
+    <DataContext.Provider value={{ data, error, isLoading }}>
+      <Home />
+      <About />
+      <Resume />
+    </DataContext.Provider>
+  );
 }
 
-export default function Index({ loaderData }: RouterType.ComponentProps) {
-  
-  return <MainContent/>;
+export default function Index() {
+  return <MainContent />;
 }

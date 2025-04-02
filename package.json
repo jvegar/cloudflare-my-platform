@@ -3,37 +3,50 @@
     "node": ">=20.0.0",
     "npm": ">=10.0.0"
   },
-	"name": "cloudflare-my-platform",
-	"private": true,
-	"type": "module",
-	"scripts": {
-		"build": "react-router build",
-		"deploy": "npm run build && wrangler deploy",
-		"dev": "react-router dev",
-		"preview": "npm run build && vite preview",
-		"start": "wrangler dev",
-		"typecheck": "wrangler types && react-router typegen && tsc -b",
-		"cf-typegen": "wrangler types"
-	},
-	"dependencies": {
-		"@tanstack/react-query": "^5.71.1",
-		"isbot": "^5.1.17",
-		"react": "^19.0.0",
-		"react-dom": "^19.0.0",
-		"react-router": "^7.3.0"
-	},
-	"devDependencies": {
-		"@cloudflare/vite-plugin": "^0.1.11",
-		"@cloudflare/workers-types": "^4.20250327.0",
-		"@react-router/dev": "^7.3.0",
-		"@tailwindcss/vite": "^4.0.0",
-		"@types/node": "^20",
-		"@types/react": "^19.0.1",
-		"@types/react-dom": "^19.0.1",
-		"tailwindcss": "^4.0.0",
-		"typescript": "^5.7.2",
-		"vite": "^6.2.1",
-		"vite-tsconfig-paths": "^5.1.4",
-		"wrangler": "^4.6.0"
-	}
+  "name": "cloudflare-my-platform",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "react-router build",
+    "deploy": "npm run build && wrangler deploy",
+    "dev": "react-router dev",
+    "preview": "npm run build && vite preview",
+    "start": "wrangler dev",
+    "typecheck": "wrangler types && react-router typegen && tsc -b",
+    "cf-typegen": "wrangler types",
+    "lint": "eslint . --ext .ts,.tsx",
+    "lint:fix": "eslint . --ext .ts,.tsx --fix",
+    "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\""
+  },
+  "dependencies": {
+    "@tanstack/react-query": "^5.71.1",
+    "isbot": "^5.1.17",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-router": "^7.3.0"
+  },
+  "devDependencies": {
+    "@cloudflare/vite-plugin": "^0.1.11",
+    "@cloudflare/workers-types": "^4.20250327.0",
+    "@react-router/dev": "^7.3.0",
+    "@tailwindcss/vite": "^4.0.0",
+    "@types/eslint": "^9.6.1",
+    "@types/node": "^20",
+    "@types/react": "^19.0.1",
+    "@types/react-dom": "^19.0.1",
+    "@typescript-eslint/eslint-plugin": "^8.29.0",
+    "@typescript-eslint/parser": "^8.29.0",
+    "eslint": "^9.23.0",
+    "eslint-config-prettier": "^10.1.1",
+    "eslint-plugin-prettier": "^5.2.5",
+    "eslint-plugin-react": "^7.37.4",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "jiti": "^2.4.2",
+    "prettier": "^3.5.3",
+    "tailwindcss": "^4.0.0",
+    "typescript": "^5.7.2",
+    "vite": "^6.2.1",
+    "vite-tsconfig-paths": "^5.1.4",
+    "wrangler": "^3.28.2"
+  }
 }
