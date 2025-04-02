@@ -1,0 +1,70 @@
+.servicesContainer {
+  text-align: center;
+  padding: 2rem;
+}
+
+.servicesContainer h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.servicesContainer p {
+  color: #666;
+  margin-bottom: 2rem;
+}
+
+.servicesGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+/* Add these media queries for responsiveness */
+@media (max-width: 1024px) {
+  .servicesGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .servicesGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .servicesContainer {
+    padding: 1rem;
+  }
+
+  .servicesContainer h1 {
+    font-size: 2rem;
+  }
+
+  .servicesGrid {
+    gap: 1rem;
+  }
+
+  .serviceCard {
+    padding: 1.5rem;
+  }
+}
+
+.serviceCard {
+  background-color: white;
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.serviceIcon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.serviceCard h3 {
+  font-size: 1rem;
+  text-transform: uppercase;
+  color: #3e64ff;
+}

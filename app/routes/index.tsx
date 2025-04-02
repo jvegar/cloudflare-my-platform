@@ -13,6 +13,7 @@ import { useLoaderData } from 'react-router';
 import { useQuery } from '@tanstack/react-query';
 import { DataContext } from '~/context/DataContext';
 import Resume from '~/components/resume/Resume';
+import Services from '~/components/services/Services';
 
 export function meta() {
   return [
@@ -83,6 +84,7 @@ function MainContent() {
       <Home />
       <About />
       <Resume />
+      <Services />
     </DataContext.Provider>
   );
 }
