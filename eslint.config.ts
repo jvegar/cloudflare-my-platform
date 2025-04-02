@@ -6,8 +6,11 @@ import reactHooksPlugin from 'eslint-plugin-react-hooks';
 import prettierPlugin from 'eslint-plugin-prettier';
 import prettierConfig from 'eslint-config-prettier';
 import type { ESLint, Linter } from 'eslint';
+import { globalIgnores } from 'eslint/config';
+import globals from 'globals';
 
 const config: Linter.Config[] = [
+  globalIgnores(['.react-router/', 'worker-configuration.d.ts']),
   eslint.configs.recommended,
   {
     files: ['**/*.{ts,tsx}'],
@@ -16,6 +19,9 @@ const config: Linter.Config[] = [
       parserOptions: {
         ecmaVersion: 'latest',
         sourceType: 'module',
+      },
+      globals: {
+        ...globals.browser,
       },
     },
     plugins: {

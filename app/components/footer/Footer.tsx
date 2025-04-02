@@ -1,10 +1,10 @@
-import styles from "./Footer.module.css";
-import twitterIcon from "../../assets/icon-twitter.svg";
-import facebookIcon from "../../assets/icon-facebook.svg";
-import instagramIcon from "../../assets/icon-instagram.svg";
-import locationIcon from "../../assets/icon-location.svg";
-import phoneIcon from "../../assets/icon-phone.svg";
-import emailIcon from "../../assets/icon-email.svg";
+import styles from './Footer.module.css';
+import twitterIcon from '../../assets/icon-twitter.svg';
+import facebookIcon from '../../assets/icon-facebook.svg';
+import instagramIcon from '../../assets/icon-instagram.svg';
+import locationIcon from '../../assets/icon-location.svg';
+import phoneIcon from '../../assets/icon-phone.svg';
+import emailIcon from '../../assets/icon-email.svg';
 
 function Footer() {
   return (
@@ -12,10 +12,7 @@ function Footer() {
       <div className={styles.footerContent}>
         <div className={styles.footerSection}>
           <h3>About me</h3>
-          <p>
-            This is my personal website where you can learn a little more about
-            me.
-          </p>
+          <p>This is my personal website where you can learn a little more about me.</p>
           <div className={styles.socialIcons}>
             <a href="#" className={styles.iconTwitter}>
               <img src={twitterIcon} alt="Twitter" width={32} height={32} />
@@ -64,19 +61,19 @@ function Footer() {
             <li className={styles.footerItem}>
               <span className={styles.iconLocation}>
                 <img src={locationIcon} alt="Location" width={32} height={32} />
-              </span>{" "}
+              </span>{' '}
               <span className={styles.footerItemText}>Lima, Perú</span>
             </li>
             <li className={styles.footerItem}>
               <span className={styles.iconPhone}>
                 <img src={phoneIcon} alt="Phone" width={32} height={32} />
-              </span>{" "}
+              </span>{' '}
               <span className={styles.footerItemText}>+51 991139451</span>
             </li>
             <li className={styles.footerItem}>
               <span className={styles.iconEmail}>
                 <img src={emailIcon} alt="Email" width={32} height={32} />
-              </span>{" "}
+              </span>{' '}
               <span className={styles.footerItemText}>jvegar@uni.pe</span>
             </li>
           </ul>

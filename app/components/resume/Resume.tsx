@@ -3,7 +3,6 @@ import styles from './Resume.module.css';
 import educationIcon from '../../assets/icon-education.svg';
 import experienceIcon from '../../assets/icon-experience.svg';
 import { useDataContext } from '../../context/DataContext';
-/*global window, document*/
 
 function Resume() {
   const { data, isLoading, error } = useDataContext();

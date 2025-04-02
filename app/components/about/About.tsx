@@ -1,9 +1,9 @@
-import styles from "./About.module.css";
-import aboutImage from "../../assets/about.jpg";
-import Stack from "./Stack/Stack";
-import { useEffect, useState } from "react";
-import { useScrollSpyContext } from "../header/scrollSpyContext";
-import { useDataContext } from "../../context/DataContext";
+import styles from './About.module.css';
+import aboutImage from '../../assets/about.jpg';
+import Stack from './Stack/Stack';
+import { useEffect, useState } from 'react';
+import { useScrollSpyContext } from '../header/scrollSpyContext';
+import { useDataContext } from '../../context/DataContext';
 
 function About() {
   const [counter, setCounter] = useState(0);
@@ -15,7 +15,7 @@ function About() {
 
   useEffect(() => {
     setCounter(0);
-    setIsCounting(activeSection === "about-section");
+    setIsCounting(activeSection === 'about-section');
   }, [activeSection]);
 
   useEffect(() => {
@@ -34,7 +34,7 @@ function About() {
     }
   }, [counter, aboutData]);
 
-  if (error) return "An error has occurred: " + (error as Error).message;
+  if (error) return 'An error has occurred: ' + (error as Error).message;
 
   return (
     <section className={styles.about} id="about-section">
@@ -51,25 +51,25 @@ function About() {
               <div className={styles.aboutHeading}>
                 <h2 className={styles.aboutHeadingMedium}>About me</h2>
                 <p className={styles.aboutDescription}>
-                  {!isLoading ? aboutData?.description : "Loading..."}
+                  {!isLoading ? aboutData?.description : 'Loading...'}
                 </p>
                 <ul className={styles.aboutInfoList}>
                   <li className={styles.aboutInfoItem}>
                     <span className={styles.aboutInfoLabel}>Name:</span>
                     <span className={styles.aboutInfoValue}>
-                      {!isLoading ? aboutData?.name : "Loading..."}
+                      {!isLoading ? aboutData?.name : 'Loading...'}
                     </span>
                   </li>
                   <li className={styles.aboutInfoItem}>
                     <span className={styles.aboutInfoLabel}>Email:</span>
                     <span className={styles.aboutInfoValue}>
-                      {!isLoading ? aboutData?.email : "Loading..."}
+                      {!isLoading ? aboutData?.email : 'Loading...'}
                     </span>
                   </li>
                   <li className={styles.aboutInfoItem}>
                     <span className={styles.aboutInfoLabel}>Phone: </span>
                     <span className={styles.aboutInfoValue}>
-                      {!isLoading ? aboutData?.phone : "Loading..."}
+                      {!isLoading ? aboutData?.phone : 'Loading...'}
                     </span>
                   </li>
                 </ul>
@@ -77,10 +77,7 @@ function About() {
               <div className={styles.aboutCounter}>
                 <div className={styles.aboutCounterText}>
                   <p className={styles.aboutCounterProjects}>
-                    <span
-                      className={styles.aboutCounterNumber}
-                      data-number={counter}
-                    >
+                    <span className={styles.aboutCounterNumber} data-number={counter}>
                       {counter}
                     </span>
                     <span className={styles.aboutCounterLabel}>Projects</span>
@@ -95,7 +92,7 @@ function About() {
             </div>
           </div>
         </div>
-        <Stack/>
+        <Stack />
       </div>
     </section>
   );

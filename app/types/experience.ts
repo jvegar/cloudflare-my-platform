@@ -1,7 +1,6 @@
 export interface ExperienceItem {
-    id: string;
-    dateRange: string;
-    title: string;
-    company: string;
-  }
-  
+  id: string;
+  dateRange: string;
+  title: string;
+  company: string;
+}

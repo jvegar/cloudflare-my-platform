@@ -1,16 +1,14 @@
-// import { useData } from "../../../context/useData";
-import type { TechStackItem } from "~/types";
-import { getImageURL } from "../../../utils/image-util";
-import styles from "./Stack.module.css";
-import { useDataContext } from "~/context/DataContext";
+import { getImageURL } from '../../../utils/image-util';
+import styles from './Stack.module.css';
+import { useDataContext } from '~/context/DataContext';
 
 function Stack() {
   const { data, isLoading, error } = useDataContext();
-  const {techStack: stackData } = data || {};
+  const { techStack: stackData } = data || {};
 
-  if (isLoading) return "Loading...";
+  if (isLoading) return 'Loading...';
 
-  if (error) return "An error has occurred: " + (error as Error).message;
+  if (error) return 'An error has occurred: ' + (error as Error).message;
 
   return (
     <section className={styles.stackSection} id="stack-section">

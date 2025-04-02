@@ -1,12 +1,10 @@
-import { useEffect, useState } from "react";
-import { useLocation } from "react-router";
+import { useEffect, useState } from 'react';
+import { useLocation } from 'react-router';
 
 const useScrollSpy = (sectionIds: string[], offset: number = 100) => {
-  const [activeSection, setActiveSection] = useState<string | undefined>(
-    undefined
-  );
+  const [activeSection, setActiveSection] = useState<string | undefined>(undefined);
   const location = useLocation();
-  const isPlatformRoute = location.pathname.startsWith("/platform");
+  const isPlatformRoute = location.pathname.startsWith('/platform');
 
   useEffect(() => {
     if (isPlatformRoute) {
@@ -26,19 +24,18 @@ const useScrollSpy = (sectionIds: string[], offset: number = 100) => {
 
         const { offsetTop, offsetHeight } = element;
         return (
-          scrollPosition >= offsetTop - offset &&
-          scrollPosition < offsetTop + offsetHeight - offset
+          scrollPosition >= offsetTop - offset && scrollPosition < offsetTop + offsetHeight - offset
         );
       });
 
       setActiveSection(currentSection);
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener('scroll', handleScroll);
     // Call once to set initial active section
     handleScroll();
 
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, [sectionIds, offset, isPlatformRoute]);
 
   return isPlatformRoute ? undefined : activeSection;

@@ -1,35 +1,32 @@
-import styles from "./Header.module.css";
-import { Link as RouterLink, useLocation } from "react-router";
-import { useEffect } from "react";
+import styles from './Header.module.css';
+import { Link as RouterLink, useLocation } from 'react-router';
+import { useEffect } from 'react';
 
 interface NavItemProps {
   href: string;
   text: string;
   isActive: boolean;
+  // eslint-disable-next-line no-unused-vars
   onClick: (href: string) => void;
 }
 
 function NavItem({ href, text, isActive, onClick }: NavItemProps) {
-  const isPlatformLink = href === "#my-platform-section";
+  const isPlatformLink = href === '#my-platform-section';
 
   return (
     <li className={styles.headerNavItem}>
       {isPlatformLink ? (
         <RouterLink
           to="/platform"
-          className={`${styles.headerNavLink} ${
-            isActive ? styles.headerNavLinkActive : ""
-          }`}
+          className={`${styles.headerNavLink} ${isActive ? styles.headerNavLinkActive : ''}`}
           onClick={() => onClick(href)}
         >
           <span>{text}</span>
         </RouterLink>
       ) : (
         <RouterLink
-          to={{ pathname: "/", hash: href }}
-          className={`${styles.headerNavLink} ${
-            isActive ? styles.headerNavLinkActive : ""
-          }`}
+          to={{ pathname: '/', hash: href }}
+          className={`${styles.headerNavLink} ${isActive ? styles.headerNavLinkActive : ''}`}
           onClick={() => onClick(href)}
         >
           <span>{text}</span>
@@ -41,6 +38,7 @@ function NavItem({ href, text, isActive, onClick }: NavItemProps) {
 
 interface NavItemsProps {
   activeLink: string;
+  // eslint-disable-next-line no-unused-vars
   onLinkClick: (href: string) => void;
 }
 
@@ -48,22 +46,22 @@ function NavItems({ activeLink, onLinkClick }: NavItemsProps) {
   const location = useLocation();
 
   useEffect(() => {
-    if (location.pathname === "/" && location.hash) {
+    if (location.pathname === '/' && location.hash) {
       const element = document.getElementById(location.hash.substring(1));
       if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
+        element.scrollIntoView({ behavior: 'smooth' });
       }
     }
   }, [location]);
 
   const items = [
-    { href: "#home-section", text: "Home" },
-    { href: "#about-section", text: "About me" },
-    { href: "#resume-section", text: "Resume" },
-    { href: "#services-section", text: "Services" },
-    { href: "#projects-section", text: "Projects" },
-    { href: "#contact-section", text: "Contact" },
-    { href: "#my-platform-section", text: "My Platform" },
+    { href: '#home-section', text: 'Home' },
+    { href: '#about-section', text: 'About me' },
+    { href: '#resume-section', text: 'Resume' },
+    { href: '#services-section', text: 'Services' },
+    { href: '#projects-section', text: 'Projects' },
+    { href: '#contact-section', text: 'Contact' },
+    { href: '#my-platform-section', text: 'My Platform' },
   ];
 
   return (

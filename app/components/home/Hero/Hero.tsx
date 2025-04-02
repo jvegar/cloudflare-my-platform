@@ -1,5 +1,5 @@
-import { useState, useEffect, useCallback } from "react";
-import styles from "./Hero.module.css";
+import { useState, useEffect, useCallback } from 'react';
+import styles from './Hero.module.css';
 
 function useTextRotation(
   toRotate: string[],
@@ -7,7 +7,7 @@ function useTextRotation(
   deletingSpeed: number,
   pausePeriod: number
 ) {
-  const [text, setText] = useState("");
+  const [text, setText] = useState('');
   const [loopNum, setLoopNum] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
 
@@ -22,7 +22,7 @@ function useTextRotation(
 
     if (!isDeleting && updatedText === fullText) {
       setTimeout(() => setIsDeleting(true), pausePeriod);
-    } else if (isDeleting && updatedText === "") {
+    } else if (isDeleting && updatedText === '') {
       setIsDeleting(false);
       setLoopNum(loopNum + 1);
     }
@@ -38,12 +38,7 @@ function useTextRotation(
 
 function Hero() {
   const rotatingText = useTextRotation(
-    [
-      "Software Engineer.",
-      "FullStack Developer.",
-      "Backend Developer.",
-      "Financial Investor.",
-    ],
+    ['Software Engineer.', 'FullStack Developer.', 'Backend Developer.', 'Financial Investor.'],
     100,
     100,
     1000

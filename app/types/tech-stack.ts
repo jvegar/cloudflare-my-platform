@@ -1,7 +1,6 @@
 export interface TechStackItem {
-    id: number;
-    name: string;
-    url: string;
-    iconPath: string;
-  }
-  
+  id: number;
+  name: string;
+  url: string;
+  iconPath: string;
+}

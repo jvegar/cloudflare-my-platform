@@ -1,9 +1,9 @@
-import { useState } from "react";
-import { useScrollPosition } from "./useScrollPosition";
-import styles from "./Header.module.css";
-import NavItems from "./NavItems";
-import { useScrollSpyContext } from "./scrollSpyContext";
-import { useLocation, Link } from "react-router";
+import { useState } from 'react';
+import { useScrollPosition } from './useScrollPosition';
+import styles from './Header.module.css';
+import NavItems from './NavItems';
+import { useScrollSpyContext } from './scrollSpyContext';
+import { useLocation, Link } from 'react-router';
 
 function Header() {
   const [isNavVisible, setIsNavVisible] = useState(false);
@@ -12,7 +12,7 @@ function Header() {
   const { activeSection } = useScrollSpyContext();
 
   const location = useLocation();
-  const isPlatformRoute = location.pathname.startsWith("/platform");
+  const isPlatformRoute = location.pathname.startsWith('/platform');
 
   const toggleNav = () => {
     setIsNavVisible(!isNavVisible);
@@ -22,12 +22,11 @@ function Header() {
     setIsNavVisible(false);
     if (!isPlatformRoute) {
       setTimeout(() => {
-        const headerHeight =
-          document.getElementById("header")?.offsetHeight || 0;
+        const headerHeight = document.getElementById('header')?.offsetHeight || 0;
         const currentPosition = window.scrollY;
         window.scrollTo({
           top: currentPosition - headerHeight,
-          behavior: "smooth",
+          behavior: 'smooth',
         });
       }, 500);
     }
@@ -35,8 +34,8 @@ function Header() {
 
   return (
     <nav
-      className={`${styles.header} ${isScrolled ? styles.headerScrolled : ""} ${
-        isPlatformRoute ? styles.headerPlatform : ""
+      className={`${styles.header} ${isScrolled ? styles.headerScrolled : ''} ${
+        isPlatformRoute ? styles.headerPlatform : ''
       }`}
       id="header"
     >
@@ -51,21 +50,11 @@ function Header() {
           aria-expanded={isNavVisible}
           aria-label="Toggle navigation"
         >
-          <span
-            className={`${styles.headerToggleIcon} ${
-              isNavVisible ? styles.open : ""
-            }`}
-          ></span>
+          <span className={`${styles.headerToggleIcon} ${isNavVisible ? styles.open : ''}`}></span>
         </button>
 
-        <div
-          className={`${styles.headerNav} ${isNavVisible ? styles.show : ""}`}
-          id="header-nav"
-        >
-          <NavItems
-            activeLink={`#${activeSection}`}
-            onLinkClick={handleLinkClick}
-          />
+        <div className={`${styles.headerNav} ${isNavVisible ? styles.show : ''}`} id="header-nav">
+          <NavItems activeLink={`#${activeSection}`} onLinkClick={handleLinkClick} />
         </div>
       </div>
     </nav>

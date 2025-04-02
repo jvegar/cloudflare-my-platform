@@ -13,7 +13,6 @@ import { useLoaderData } from 'react-router';
 import { useQuery } from '@tanstack/react-query';
 import { DataContext } from '~/context/DataContext';
 import Resume from '~/components/resume/Resume';
-/*global fetch*/
 
 export function meta() {
   return [
