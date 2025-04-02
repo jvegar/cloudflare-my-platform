@@ -1,0 +1,119 @@
+.about {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .aboutContainer {
+    max-width: 1200px;
+    width: 100%;
+  }
+  
+  .aboutRow {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .aboutImageColumn,
+  .aboutContentColumn {
+    flex: 1;
+    min-width: 300px;
+  }
+  
+  .aboutImageWrapper {
+    position: relative;
+    height: 100%;
+    min-height: 400px;
+  }
+  
+  .aboutImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .aboutContentWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    margin: 0 2rem;
+  }
+  
+  .aboutHeadingBig {
+    font-size: 3rem;
+    color: #e6e6e6;
+    margin-bottom: -1rem;
+  }
+  
+  .aboutHeadingMedium {
+    font-size: 3.2rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+  }
+  
+  .aboutDescription {
+    margin-bottom: 1.5rem;
+    color: #6c757d;
+  }
+  
+  .aboutInfoList {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .aboutInfoItem {
+    display: flex;
+    margin-bottom: 0.5rem;
+  }
+  
+  .aboutInfoLabel {
+    font-weight: bold;
+    min-width: 80px;
+  }
+  
+  .aboutCounter {
+    margin-top: 2rem;
+  }
+  
+  .aboutCounterProjects {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .aboutCounterNumber {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #3e64ff;
+  }
+  
+  .aboutCounterLabel {
+    font-size: 1.2rem;
+    color: black;
+  }
+  
+  .aboutDownloadButton {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background-color: #3e64ff;
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .aboutDownloadButton:hover {
+    background-color: #1d4ed8;
+  }
+  
+  @media (max-width: 768px) {
+    .aboutRow {
+      flex-direction: column;
+    }
+  
+    .aboutImageWrapper {
+      min-height: 300px;
+    }
+  }
+  

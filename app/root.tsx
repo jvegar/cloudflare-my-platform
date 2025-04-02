@@ -9,6 +9,16 @@ import {
 
 import type { Route } from "./+types/root";
 import "./app.css";
+import Header from "./components/header/Header";
+import Footer from "./components/footer/Footer";
+import {
+  HydrationBoundary,
+  QueryClient,
+  QueryClientProvider,
+} from '@tanstack/react-query'
+import { ScrollSpyProvider } from "./components/header/ScrollSpyProvider";
+
+import React from "react";
 
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -33,7 +43,9 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body>
+        <Header/>
         {children}
+        <Footer/>
         <ScrollRestoration />
         <Scripts />
       </body>
@@ -42,7 +54,10 @@ export function Layout({ children }: { children: React.ReactNode }) {
 }
 
 export default function App() {
-  return <Outlet />;
+  const [queryClient] = React.useState(() => new QueryClient());
+  return <ScrollSpyProvider><QueryClientProvider client={queryClient}> 
+  <Outlet />
+  </QueryClientProvider></ScrollSpyProvider>;
 }
 
 export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {

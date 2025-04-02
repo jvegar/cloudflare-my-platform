@@ -2,6 +2,11 @@
 
 A modern, production-ready template for building full-stack React applications using React Router.
 
+## Requirements
+
+- Node.js 20.x or higher (LTS recommended)
+- npm 10.x or higher
+
 ## Features
 
 - 🚀 Server-side rendering

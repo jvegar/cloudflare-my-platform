@@ -1,4 +1,8 @@
 {
+  "engines": {
+    "node": ">=20.0.0",
+    "npm": ">=10.0.0"
+  },
 	"name": "cloudflare-my-platform",
 	"private": true,
 	"type": "module",
@@ -12,6 +16,7 @@
 		"cf-typegen": "wrangler types"
 	},
 	"dependencies": {
+		"@tanstack/react-query": "^5.71.1",
 		"isbot": "^5.1.17",
 		"react": "^19.0.0",
 		"react-dom": "^19.0.0",
