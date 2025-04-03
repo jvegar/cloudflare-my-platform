@@ -14,6 +14,7 @@ import { useQuery } from '@tanstack/react-query';
 import { DataContext } from '~/context/DataContext';
 import Resume from '~/components/resume/Resume';
 import Services from '~/components/services/Services';
+import Projects from '~/components/projects/Projects';
 
 export function meta() {
   return [
@@ -85,6 +86,7 @@ function MainContent() {
       <About />
       <Resume />
       <Services />
+      <Projects />
     </DataContext.Provider>
   );
 }

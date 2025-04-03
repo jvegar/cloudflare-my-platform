@@ -20,7 +20,13 @@
   },
   "dependencies": {
     "@tanstack/react-query": "^5.71.1",
+    "framer-motion": "^12.6.3",
+    "html-react-parser": "^5.2.3",
     "isbot": "^5.1.17",
+    "markdown-it": "^14.1.0",
+    "markdown-it-anchor": "^9.2.0",
+    "markdown-it-attrs": "^4.3.1",
+    "markdown-it-task-lists": "^2.1.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-router": "^7.3.0"
@@ -31,6 +37,7 @@
     "@react-router/dev": "^7.3.0",
     "@tailwindcss/vite": "^4.0.0",
     "@types/eslint": "^9.6.1",
+    "@types/markdown-it": "^14.1.2",
     "@types/node": "^20",
     "@types/react": "^19.0.1",
     "@types/react-dom": "^19.0.1",
